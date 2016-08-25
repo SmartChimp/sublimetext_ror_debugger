@@ -16,7 +16,7 @@ Sublimetext -> preferences -> browser package
 
 Clone the github in Package folder
 
-git clone  "Ruby Debugger"
+git clone https://github.com/SmartChimp/sublimetext_ror_debugger.git "Ruby Debugger"
 
 
 
