@@ -1,4 +1,5 @@
 class RubyVersion
+  require 'byebug/core'
   attr_accessor :version, :gem_name, :init_block, :debug_block, :gem_version
 
   def initialize(version, gem_name, debug_block, init_block, gem_version = nil)
@@ -11,7 +12,7 @@ class RubyVersion
 end
 
 r193 = RubyVersion.new("1.9.3", "debugger", lambda { debugger  }, lambda {  Debugger.wait_connection = true; Debugger.start_remote "127.0.0.1" })
-r200 = RubyVersion.new("2.0.0", "byebug", lambda { byebug  }, lambda {  Byebug.wait_connection = true; Byebug.start_server "127.0.0.1" }, ">=2.5.0")
+r200 = RubyVersion.new(RUBY_VERSION, "byebug", lambda { byebug  }, lambda {  Byebug.wait_connection = true; Byebug.start_server "127.0.0.1" }, ">=2.5.0")
 
 if current_version = RUBY_VERSION > "1.9.3" ? r200 : r193
   begin
